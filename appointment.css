@@ -1,0 +1,167 @@
+/* Styles for headings */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+/* Styles for forms and labels */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(249, 249, 249, 0.7); /* Form background with transparency */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    opacity: 0.8; 
+     /* Required for positioning the background image */
+}
+
+/* Background image */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://cdn.wallpapersafari.com/72/97/u0csSt.jpg'); /* Replace 'path_to_your_image.jpg' with your image path */
+    background-size: cover;
+    background-position: center;
+    opacity: 0.8; /* Adjust the opacity of the background image */
+    z-index: -1; /* Place the background behind the form */
+}
+
+/* Rest of your existing styles */
+/* ... */
+
+
+/* Styles for forms and labels */
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Styles for input fields */
+input[type="date"],
+input[type="time"],
+input[type="submit"],
+input[type="text"],
+input[type="email"] {
+    width: calc(100% - 18px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Styles for buttons */
+button {
+    display: block;
+    margin-top: 20px;
+    background-color: #f44336;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #d32f2f;
+}
+
+/* Styles for popup message */
+.popup {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+}
+
+.popup.show {
+    visibility: visible;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        bottom: 0;
+    }
+    to {
+        opacity: 1;
+        bottom: 30px;
+    }
+}
+/* Styles for links */
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3;
+}
+
+/* Styles for paragraphs */
+p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Styles for error messages */
+.error-message {
+    color: #ff0000;
+    margin-bottom: 10px;
+}
+
+/* Styles for success messages */
+.success-message {
+    color: #4CAF50;
+    margin-bottom: 10px;
+}
+
+/* Styles for horizontal lines */
+hr {
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
