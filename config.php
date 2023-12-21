@@ -1,10 +1,10 @@
 <?php
 
-$host = "localhost";
+$host = "legalconnect.postgres.database.azure.com";
 $port = "5432";
 $dbname = "postgres";
-$user = "postgres";
-$password = "postgres";
+$user = "legalconnect";
+$password = "srilekha@3";
 
 $connectionString = "host=$host port=$port dbname=$dbname user=$user password=$password";
 $connection = pg_connect($connectionString);
