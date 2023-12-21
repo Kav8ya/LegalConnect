@@ -44,7 +44,7 @@ if (isset($_POST['submit'])) {
     <title>Login Form</title>
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             background-image: url("bgimg.png");
