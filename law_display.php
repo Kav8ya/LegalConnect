@@ -12,28 +12,25 @@
 </head>
 <body>
     <?php
-    $db = pg_connect("host=localhost dbname=postgres port=5432 user=postgres password=postgres");
-    if (!$db) {
-        die("Error in connection: " . pg_last_error());
-    }
+    @include 'config.php';
     $id=$_GET['id'];
     if($_SERVER["REQUEST_METHOD"]=="POST"){
         $rat=$_POST["rating"];
-        $up=pg_query($db,"select rating from Lawyers where lawyerID=$id");
+        $up=pg_query($connection,"select rating from Lawyers where lawyerID=$id");
         $ans=pg_fetch_assoc($up);
         $cur=$ans['rating'];
         //echo "got";
         $query="call ratin($id,$cur,$rat);";
-        $result=pg_query($db,$query);
+        $result=pg_query($connection,$query);
         //echo "done";
         
         $rev=$_POST["review"];
         $query="insert into Lawyer_review(lawyer_id,rating,review) values($id,$rat,'$rev');";
-        $result=pg_query($db,$query);
+        $result=pg_query($connection,$query);
     }
     //echo "Connected successfully";
     $query="select * from Lawyers where lawyerID=$id";
-    $result=pg_query($db,$query);
+    $result=pg_query($connection,$query);
     //echo "got";
     
     $row=pg_fetch_assoc($result);
@@ -50,7 +47,7 @@
     $rating=$row['rating'];
     $fees=$row['fees'];
     $won=$row['caseswon'];
-    //$imgUrl=$row['imageblob'];
+    $imgUrl=$row['imageblob'];
     //echo "got";    
     ?>
     <header>
@@ -71,7 +68,8 @@
     </header>
     <div class="main">
         <div class="left">
-            <img src="1.png" alt="soon">
+    
+            <?php "<img src=".$imgUrl." alt='soon'>"?>
         </div>
         <div class="mid">
             <div class="title">
@@ -146,7 +144,7 @@
         <div class="heading1">REVIEWS:</div>
     <?php 
     $query = "SELECT review FROM Lawyer_review WHERE lawyer_id = $id ORDER BY random() LIMIT 2;";
-    $result = pg_query($db, $query);
+    $result = pg_query($connection, $query);
     while ($row = pg_fetch_assoc($result)) {
         echo "
         $row[review]<br><br>";
